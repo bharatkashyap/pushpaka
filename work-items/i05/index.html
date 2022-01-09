@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>UTM Concept of Operations and UTM Policy - Pushpaka</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/mono-blue.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Pushpaka</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../" class="nav-link">Work Items</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../nomenclature/" class="nav-link">Nomenclature</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../bibliography/" class="nav-link">Bibliography</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#utm-concept-of-operations-and-utm-policy" class="nav-link">UTM Concept of Operations and UTM Policy</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#introduction" class="nav-link">Introduction</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#state-of-the-art" class="nav-link">State of the art</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#actors" class="nav-link">Actors</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#use-cases" class="nav-link">Use cases</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#utm-architecture" class="nav-link">UTM Architecture</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#rules-of-business" class="nav-link">Rules of business</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#ecosystem-evolution-timeline" class="nav-link">Ecosystem Evolution Timeline</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="utm-concept-of-operations-and-utm-policy">UTM Concept of Operations and UTM Policy</h1>
+<p>ID: <code>I05</code><br />
+Status: <code>WORKING DRAFT</code><br />
+Version: <code>1</code>  </p>
+<p><strong>Authors</strong></p>
+<ul>
+<li>Amit Garg (<a href="mailto:studies.amit@gmail.com?subject=Pushpaka I05 UTM Concept of Operations">corresponding</a>)</li>
+<li>Sayandeep Purkayasth (<a href="mailto:sayandeep@deepcyan.ai?subject=Pushpaka I05 UTM Policy Comments">corresponding</a>)</li>
+<li>Hrishikesh Ballal</li>
+<li>Siddharth Shetty</li>
+<li>Manish Shukla</li>
+<li>Siddharth Ravikumar</li>
+<li>George Thomas</li>
+</ul>
+<p><strong>Outline</strong>  </p>
+<div class="toc">
+<ul>
+<li><a href="#utm-concept-of-operations-and-utm-policy">UTM Concept of Operations and UTM Policy</a><ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#state-of-the-art">State of the art</a><ul>
+<li><a href="#gutma">GUTMA</a><ul>
+<li><a href="#key-insights-from-gutma-architecture-document">Key Insights from GUTMA Architecture document</a></li>
+</ul>
+</li>
+<li><a href="#swiss-conops">Swiss ConOps</a><ul>
+<li><a href="#key-insights-from-swiss-conops">Key Insights from Swiss ConOps</a></li>
+</ul>
+</li>
+<li><a href="#european-union-aviation-safety-agency">European Union Aviation Safety Agency</a><ul>
+<li><a href="#u-space-specifications">U-Space Specifications</a></li>
+</ul>
+</li>
+<li><a href="#icao">ICAO</a></li>
+<li><a href="#federal-aviation-authority">Federal Aviation Authority</a><ul>
+<li><a href="#utm-specification-v1v2">UTM Specification v1/v2</a></li>
+<li><a href="#unmanned-aerial-mobility-specification-v1">Unmanned Aerial Mobility Specification v1</a></li>
+</ul>
+</li>
+<li><a href="#japan">Japan</a></li>
+<li><a href="#china">China</a></li>
+<li><a href="#india">India</a></li>
+</ul>
+</li>
+<li><a href="#actors">Actors</a></li>
+<li><a href="#use-cases">Use cases</a><ul>
+<li><a href="#manufacturer">Manufacturer</a></li>
+<li><a href="#pilot">Pilot</a></li>
+<li><a href="#operator">Operator</a></li>
+<li><a href="#insurer">Insurer</a></li>
+<li><a href="#civil-aviation-authority">Civil Aviation Authority</a></li>
+<li><a href="#data-consumer">Data Consumer</a></li>
+<li><a href="#uas-ownership-etc">UAS Ownership, etc.</a></li>
+<li><a href="#law-enforcement">Law Enforcement</a></li>
+<li><a href="#security-agencies">Security Agencies</a></li>
+<li><a href="#air-navigation-service-provider">Air Navigation Service Provider</a></li>
+<li><a href="#military">Military</a></li>
+<li><a href="#bcas">BCAS</a></li>
+<li><a href="#general-public">General Public</a></li>
+<li><a href="#governmentsemi-governmental-bodies">Government/Semi-Governmental Bodies</a></li>
+</ul>
+</li>
+<li><a href="#utm-architecture">UTM Architecture</a><ul>
+<li><a href="#considerations-for-design">Considerations for design</a></li>
+<li><a href="#services">Services</a><ul>
+<li><a href="#registration">Registration</a></li>
+<li><a href="#operations">Operations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#rules-of-business">Rules of business</a><ul>
+<li><a href="#high-priority-activities">High Priority activities</a></li>
+</ul>
+</li>
+<li><a href="#ecosystem-evolution-timeline">Ecosystem Evolution Timeline</a><ul>
+<li><a href="#phases-high-level">Phases (high level)</a></li>
+<li><a href="#phases-detail">Phases (detail)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="introduction">Introduction</h2>
+<h2 id="state-of-the-art">State of the art</h2>
+<p>The following contains a review of existing efforts by different agencies / stakeholders. Some of them have not been updated for a couple of years and we highlight key elements of the the related documents / concepts. </p>
+<h4 id="gutma">GUTMA</h4>
+<p>Given that GUTMA is mainly a industry organization and not a authority, they maintain opinions on the architectures for UTM. The main document reviewed is the <a href="https://www.gutma.org/docs/Global_UTM_Architecture_V1.pdf">UTM Architecture</a> and the <a href="https://gutma.org/designing-utm-for-global-success/">Designing UTM for Global Success</a> documents. GUTMA recognizes UTM as a "system of systems" with many active and passive stakeholders:
+<img alt="GUTMA-UTM-System" src="../images/gutma-utm-system.jpg" />
+Source:  Page 13, Illustration 2 of UTM Architecture document.</p>
+<p>The figure above illustrates the key players in the eco-system and is useful in understanding the scope of a UTM system. In a digital context, all the interactions will happen via APIs since a number of the interactions will be done by computers with little or no human oversight unless there is an emergency.</p>
+<h5 id="key-insights-from-gutma-architecture-document">Key Insights from GUTMA Architecture document</h5>
+<ul>
+<li>The document identifies roles and use-cases (Pages 17-19, UTM Architecture) which is a good starting point for understanding how these stakeholders will interact with these services.</li>
+<li>The document does not specify technical architectures for UTM and is a good starting point to get a overview of the eco-system. </li>
+<li>Given that the authors are not in a standards making organization or authority they do not specify or recommend standards that could be adopted. </li>
+</ul>
+<h4 id="swiss-conops">Swiss ConOps</h4>
+<p>A <a href="https://www.bazl.admin.ch/bazl/en/home/good-to-know/drohnen/wichtigsten-regeln/uspace.html">U-Space Concept of Operations for Switzerland</a> was first published in 2019 and updated in 2020. This document, focuses on the specifics and layout a advanced architecture. In Switzerland Skyguide the ANSP works in co-ordination with the Civil Agencies to form the "Common Information Function" (Section 6.1)
+<img alt="Swiss-U-Space-Architecture" src="../images/swiss-u-space-architecture.jpg" />
+(Source: Swiss ConOps Document, link above)</p>
+<h5 id="key-insights-from-swiss-conops">Key Insights from Swiss ConOps</h5>
+<ul>
+<li>The ConOps recognizes two main types of USP services: Vertically integrated and "USP as a service". Both of these talk to a common interoperability framework and exchange data.
+<img alt="USP-Service-Type" src="../images/usp-types.jpg" />
+(Source: Swiss ConOps Document, link above)</li>
+<li>The ConOps talks about a incremental framework of approval with selected services and providers in a collaborative fashion by leveraging standards. The incremental process will start with a voluntary stage and after the publication of U-Space rules, technical tools, processes will be explored.</li>
+<li>The Swiss ConOps references the ASTM standard for Network Remote-ID and Tracking and the inter-operability between USSes.</li>
+</ul>
+<h4 id="european-union-aviation-safety-agency">European Union Aviation Safety Agency</h4>
+<p>The EU recently published a legislative framework for U-Space. The regulation details the roles and responsibilities of the different stakeholders in the U-Space / UTM eco-system. The EU through its ConOps has classified operations and airspaces and equipment guidelines for U-Space, a example image is below. 
+<img alt="EU-Drone-rules" src="../images/eu-drone-rules.jpg" />
+Source : <a href="https://dronerules.eu/sl/professional/eu_regulations_updates">Dronerules.eu</a></p>
+<h5 id="u-space-specifications">U-Space Specifications</h5>
+<ul>
+<li>EU works as a federation and it is left to the member states to design the U-Space for drone operations.</li>
+<li>The new U-Space regulation calls for a creation of <code>U-Space Service Providers (USSP)</code> that will be certified to provide U-Space services. </li>
+<li>The EU has identified four mandatory services that must be provided by USSPs:</li>
+<li>Geo-awareness</li>
+<li>Traffic Information</li>
+<li>Flight Authorization</li>
+<li>Network Identification</li>
+<li>The exist standards for these services e.g. <a href="https://eurocae.net/news/posts/2020/june/ed-269-minimum-operational-performance-standard-for-uas-geo-fencing/">ED-269</a> for Geo-awareness, <a href="https://www.astm.org/f3411-19.html">ASTM F3411-19</a> etc. It can be reasonable to assume that these or similar standards will be adopted to by authorities to enable standardized certification.</li>
+<li>Once the implementing regulation comes into force in January 2023, we can assume that there will be activity and interest in this space from the EU.</li>
+<li>Drone operators and ANSPs will have to establish contracts wtih a certified USSP.</li>
+</ul>
+<h3 id="icao">ICAO</h3>
+<p>(AG)</p>
+<h3 id="federal-aviation-authority">Federal Aviation Authority</h3>
+<h4 id="utm-specification-v1v2">UTM Specification v1/v2</h4>
+<p>(SP)</p>
+<h4 id="unmanned-aerial-mobility-specification-v1">Unmanned Aerial Mobility Specification v1</h4>
+<p>(MS)</p>
+<h3 id="japan">Japan</h3>
+<p>(GT)</p>
+<h3 id="china">China</h3>
+<p>(??)</p>
+<h3 id="india">India</h3>
+<p>In November 2020, the MoCA published a <a href="../../ref/draft-utm-policy/">National UTM Policy Discussion Draft</a>. It describes a fairly comprehensive traffic management ecosystem and details the stakeholders, components, services provided by UTMSPs and DigitalSky at a high level. The <a href="../../ref/draft-utm-policy/#utm-architecture">Architecture</a> is clearly inspired by the JARUS UTM architecture <a href="../../bibliography/#NASA-UTM-1"><code>NASA-UTM-1</code></a>. The section on <a href="../../ref/draft-utm-policy/#real-time-identification-and-tracking-of-uas">Identification and Tracking of UAS</a> seems to be inspired by ASTM Remote ID standard <a href="../../bibliography/#ASTM-F3411-19"><code>ASTM-F3411-19</code></a>. For Risk Assessment of unmanned operations, the ICAO Safety Management System <a href="../../bibliography/#ICAO-Annex19"><code>ICAO-Annex19</code></a> The draft also discusses <a href="../../ref/draft-utm-policy/#utm-operational-scenarios">eleven operational scenarios</a> modelled on SORA standard scenarios (see <a href="../../bibliography/#JARUS-SORA"><code>JARUS-SORA</code></a>, <a href="../../bibliography/#JARUS-SORA-STS01"><code>JARUS-SORA-STS01</code></a>, <a href="../../bibliography/#JARUS-SORA-STS02"><code>JARUS-SORA-STS02</code></a>), although not as well defined from a risk assessment point-of-view. The scenarios seem to be geared towards enabling particular business cases based on operational constraints that are too broad for actual standardisation. The section on <a href="../../ref/draft-utm-policy/#airspace-classification-of-utm-airspace">Airspace classification for UTM operations</a> proposed three classes U1 through U3 where different combinations of flight rules, viz. Unmanned (<a href="../../nomenclature/#UFR"><code>UFR</code></a>), Visual (<a href="../../nomenclature/#VFR"><code>VFR</code></a>) and Instrument (<a href="../../nomenclature/#IFR"><code>IFR</code></a>) Flight Rules may apply. The draft also describes strategies for <a href="../../ref/draft-utm-policy/#utm-deployment-plan">UTM deployment</a> and models for <a href="../../ref/draft-utm-policy/#utm-service-charges">UTM monetisation</a>.</p>
+<p>While the discussion draft covers almost all the aspects of UTM policy making, several proposals seem unrealistic given the current socio-politic and economic conditions in India. A few of these issues are outlined below.</p>
+<ol>
+<li><strong>Roadmapping absent</strong><br />
+Establishing a complex ecosytem such as that for a UTM, with a large number of stakeholder types and participants, requires a well reasoned roadmap for development and operationalisation of government owned infrastructure. For instance such environments in the USA and EU have evolved organically over several years and with full-time active participation of regulators, industry, innovators and the academia. Bootstrapping an Indian UTM ecosystem development with knowhow from abroad will still require an adoption period.</li>
+<li><strong>Limited Technical knowhow</strong></li>
+<li><strong>Limited Market capacity</strong></li>
+<li><strong>Limited incentives for innovation</strong></li>
+<li><strong>Technical standards absent</strong><br />
+While a policy provides a birds-eye view of the development of a UTM ecosystem, it is ultimately technical standards and specifications that bring such a policy closer to reality. Unfortunately, while there are a lot of working and research groups with limited scopes all across India, their is a clear lack of effort on the development of such standards which can be easily adopted by the DGCA, QCI and AAI (as building blocks for the DigitalSky platform).</li>
+<li><strong>DigitalSky capabilities</strong><br />
+In the discussion draft, it has been proposed that DigitalSky support the entire spectrum of services that a UTM SP can or may provide. While this is a great goal to strive towards, such a monopolistic approach is often unrealistic particularly given the immense amount of innovation and research in the field of unmanned aviation. With new technologies emanating from the academia and the industry every so often, the burden to adopt these on a state-run infrastructure would be immense dooming it to repeat past failures. In addition, it would only deincentivise private and academic innovation in the UTM. It would be much more realistic to adopt a grounded approach, limiting the scope of DigitalSky to regulatory and interaction with government and other state-run bodies. It is notable that such an approach has has worked well in the EU and USA.</li>
+<li><strong>Key open issues</strong><ol>
+<li>Remote ID &amp; Tracking<ol>
+<li>Technical standards not specified</li>
+</ol>
+</li>
+<li>Authentication &amp; Network Security<ol>
+<li>RA/CA to be implemented under DigitalSky: completely unnecessary and increases complexity</li>
+</ol>
+</li>
+<li>Safety and Risk Assessment<ol>
+<li>SORA vs ICAO SMS<br />
+SMS maybe too generic for UA operations; UTM Policy should also include JARUS SORA</li>
+<li>Standard Scenarios<ol>
+<li>seem closer to business scenarios rather than operational scenarios</li>
+<li>operational limits/criteria not defined</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>ATM-UTM Integration<ol>
+<li>Technical standards<br />
+UFII-ATM-ANSP integration needs to be planned</li>
+</ol>
+</li>
+<li>UTM Business Rules: No implementable details on <ol>
+<li>Separation standards</li>
+<li>Terrain &amp; Obstacle clearance standards for<ol>
+<li>DAA</li>
+<li>UTM based service</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Deployment<ol>
+<li>Choice of Single-per-region/Multiple-per-region/Hybrid<br />
+We should policy favour maximum participants to foster innovation</li>
+</ol>
+</li>
+<li>Pricing models<br />
+    Only pricing models for UTMs to register themselves and manage particular airspaces should be specified; the pricing models for clients of UTM services should be market driven. Criteria for pricing UTM registration and operational fees charged by AAI/DGCA/etc. may include: list of services provided, airspace area under management, operations supported by UTM, etc.</li>
+</ol>
+</li>
+</ol>
+<h2 id="actors">Actors</h2>
+<ol>
+<li>Manufacturer</li>
+<li>Pilot</li>
+<li>Operator</li>
+<li>Insurer</li>
+<li>Civil Aviation Authority</li>
+<li>Data Consumer</li>
+<li>UAS Owner</li>
+<li>Law Enforcement</li>
+<li>Security Agencies</li>
+<li>Air Navigation Service Provider</li>
+<li>Disaster Management Agencies</li>
+<li>Military</li>
+<li>BCAS</li>
+<li>General Public</li>
+<li>Other UTM-SP or instances thereof</li>
+<li>Pilot Certifier</li>
+<li>UAS Type Certifier</li>
+<li>UAS Testing Agency</li>
+</ol>
+<h2 id="use-cases">Use cases</h2>
+<h3 id="manufacturer">Manufacturer</h3>
+<ol>
+<li>Manage Registration with CAA</li>
+</ol>
+<h3 id="pilot">Pilot</h3>
+<ol>
+<li>Manage Registration with CAA</li>
+<li>Plan a Flight</li>
+<li>Apply for Flight Permit</li>
+</ol>
+<h3 id="operator">Operator</h3>
+<ol>
+<li>Manage Registration with CAA</li>
+<li>Manage Pilots</li>
+<li>Manage UASs</li>
+</ol>
+<h3 id="insurer">Insurer</h3>
+<ol>
+<li>Accident Investigations</li>
+</ol>
+<h3 id="civil-aviation-authority">Civil Aviation Authority</h3>
+<p>i.e. DGCA</p>
+<ol>
+<li>Audit<ol>
+<li>Pilot</li>
+<li>Operator</li>
+</ol>
+</li>
+<li>Manage registration<ol>
+<li>Manufacturer</li>
+<li>Pilot</li>
+<li>Operator</li>
+</ol>
+</li>
+</ol>
+<h3 id="data-consumer">Data Consumer</h3>
+<p>Consumer for data collected by a UAS during an operation.</p>
+<ol>
+<li>Data access</li>
+</ol>
+<h3 id="uas-ownership-etc">UAS Ownership, etc.</h3>
+<ol>
+<li>Lease</li>
+<li>Rent</li>
+<li>Transfer</li>
+<li>Buy</li>
+<li>Scrap</li>
+</ol>
+<h3 id="law-enforcement">Law Enforcement</h3>
+<ol>
+<li>Find Pilot/Operator against FIR</li>
+<li>Track UAS</li>
+<li>Find Rogue UAS</li>
+<li>Counter UAS action</li>
+</ol>
+<h3 id="security-agencies">Security Agencies</h3>
+<ol>
+<li>Find Pilot/Operator against FIR</li>
+<li>Track UAS</li>
+<li>Find rogue UAS</li>
+<li>Counter UAS action</li>
+</ol>
+<h3 id="air-navigation-service-provider">Air Navigation Service Provider</h3>
+<p>i.e. AAI</p>
+<ol>
+<li>Flight permission in controlled airspace</li>
+<li>Traffic Management<ol>
+<li>Deconfliction</li>
+</ol>
+</li>
+</ol>
+<h3 id="military">Military</h3>
+<p>i.e. IAF, Navy, Coast Guard, HAL</p>
+<ol>
+<li>Permission in applicable military controlled airspace</li>
+<li>Traffic Management<ol>
+<li>Deconfliction</li>
+</ol>
+</li>
+</ol>
+<h3 id="bcas">BCAS</h3>
+<ol>
+<li>Counter UAS action</li>
+</ol>
+<h3 id="general-public">General Public</h3>
+<ol>
+<li>Legal action against Drone Pilot/Operator</li>
+<li>Raise claim against accident</li>
+</ol>
+<h3 id="governmentsemi-governmental-bodies">Government/Semi-Governmental Bodies</h3>
+<ol>
+<li>UIDAI</li>
+<li>AERA</li>
+<li>DGFT</li>
+<li>CIN MCA/RoC</li>
+<li>GSTIN</li>
+<li>MoF</li>
+<li>QCI-CB</li>
+<li>Passport, VISA/OCI (MEA)</li>
+<li>WPC</li>
+<li>Driving License RTO</li>
+<li>Bharatkosh MoF</li>
+</ol>
+<h2 id="utm-architecture">UTM Architecture</h2>
+<h3 id="considerations-for-design">Considerations for design</h3>
+<h3 id="services">Services</h3>
+<h4 id="registration">Registration</h4>
+<ol>
+<li>Manufacturer Profile Management</li>
+<li>Pilot Profile Management</li>
+<li>UIN Application</li>
+<li>Permission Management</li>
+<li>Operator Profile Management</li>
+<li>RPAS Acquisition/Transfer</li>
+<li>UAOP Application</li>
+</ol>
+<h4 id="operations">Operations</h4>
+<ol>
+<li>Flight Awareness</li>
+<li>Strategic Deconfliction</li>
+<li>Conflict Advisory and Alert</li>
+<li>Communication and Navigation</li>
+<li>Weather</li>
+<li>Dynamic Airspace Density</li>
+<li>Discovery</li>
+<li>Messaging</li>
+<li>Airspace Authorisation</li>
+<li>Incident Reporting</li>
+<li>Log Management</li>
+<li>Flight Planning</li>
+<li>Flight Notification</li>
+<li>Dynamic Reroute</li>
+<li>Conformance Monitoring</li>
+<li>Risk Reduction</li>
+<li>Surveillance</li>
+<li>Airspace Organization and Management</li>
+<li>Mapping</li>
+<li>Restriction Management</li>
+<li>Drone Swarm Management</li>
+<li>Drone Port Management</li>
+<li>Drone Corridor Management</li>
+<li>Anti-drone measures /c-UAS</li>
+<li>Emergency Management</li>
+<li>Interface with ATC</li>
+</ol>
+<h2 id="rules-of-business">Rules of business</h2>
+<h3 id="high-priority-activities">High Priority activities</h3>
+<pre><code>923/2012 are:
+</code></pre>
+<ul>
+<li>police and customs missions </li>
+<li>traffic surveillance and pursuit missions </li>
+<li>environmental control missions conducted by, or on behalf of public authorities </li>
+<li>search and rescue </li>
+<li>medical flights </li>
+<li>evacuations </li>
+<li>firefighting </li>
+<li>exemptions required to ensure the security of flights by heads of State, Ministers and comparable State functionaries</li>
+</ul>
+<h2 id="ecosystem-evolution-timeline">Ecosystem Evolution Timeline</h2>
+<h3 id="phases-high-level">Phases (high level)</h3>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Services</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M0</td>
+<td>Registration, Restriction Management V0, Incident Reporting</td>
+<td>Till Feb 2022</td>
+</tr>
+<tr>
+<td>M1</td>
+<td>Communication and Navigation, Flight Awareness, Permission Management, Discovery, Airspace Authorisation, Messaging</td>
+<td>Feb 2022 - Feb 2023</td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Flight Notification, Strategic Deconfliction, Conflict Advisory and Alert, Dynamic Airspace Density, Weather</td>
+<td>Feb 2023 - Feb 2024</td>
+</tr>
+<tr>
+<td>M3</td>
+<td>Emergency Management, Conformance Monitoring, Restriction Management V1, Log Management, Interface with ATC, Swarm Management, Corridor Management</td>
+<td>Feb 2024 - Feb 2025</td>
+</tr>
+</tbody>
+</table>
+<h3 id="phases-detail">Phases (detail)</h3>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Service</th>
+<th>Description</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M0</td>
+<td>Registration</td>
+<td>Pilot, Manufacturer Org., Training Org., Operator Org. registration and profile management</td>
+<td>Till Feb 2022</td>
+</tr>
+<tr>
+<td></td>
+<td>Restriction Management V0</td>
+<td>Airspace Rules</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Incident Reporting</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>M1</td>
+<td>Communication and Navigation</td>
+<td></td>
+<td>Till Feb 2023</td>
+</tr>
+<tr>
+<td></td>
+<td>Flight Awareness</td>
+<td>Get info about flights in Volume of Interest</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Permission Management</td>
+<td>Allow UTMs to issue flight permits</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Discovery</td>
+<td>Allow UTMs to discover each other</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Airspace Authorisation</td>
+<td>Integration with Non-CAA authorities for seeking flight permission</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Messaging</td>
+<td>Allow Pilots/Ops to create/search TFR/NOTAM/UVR</td>
+<td></td>
+</tr>
+<tr>
+<td>M2</td>
+<td>Flight Notification</td>
+<td>Get flights in AOI</td>
+<td>Till Feb 2024</td>
+</tr>
+<tr>
+<td></td>
+<td>Strategic Deconfliction</td>
+<td>Pre-flight deconfliction with issued flight plans based on volume restrictions and intersections</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Conflict Advisory and Alert</td>
+<td>Get constraints, advisory, directives for conflicts to aid pilot based deconfliction</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Dynamic Airspace Density</td>
+<td>Get expected airspace density for volume of interest</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Weather</td>
+<td>Get wind, visibility, temperature, precipitation prediction for Flight</td>
+<td></td>
+</tr>
+<tr>
+<td>M3</td>
+<td>Emergency Management</td>
+<td>UVR/NOTAM/TFR preemption rules</td>
+<td>Till Feb 2025</td>
+</tr>
+<tr>
+<td></td>
+<td>Conformance Monitoring</td>
+<td>Check Remote ID Tracking for conformance with buffers</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Restriction Management V1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Swarm Management</td>
+<td>Allow UTMs to manage swarm coordination</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Corridor Management</td>
+<td>Maintain Corridor geometries and operational constraints, allow UTMs to coordinate ops in corridors</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Log Management</td>
+<td>Flight Log storage and analytics</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Interface with ATC</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
